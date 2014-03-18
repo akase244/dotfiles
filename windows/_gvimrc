@@ -1,0 +1,15 @@
+" colorscheme torte
+colorscheme desert
+
+set lines=50
+set columns=150
+
+set gfn=MeiryoKe_Gothic:h13:cSHIFTJIS
+
+" gui
+" autocmd GUIEnter * set transparency=220
+
+" メニューの文字化け対策
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
