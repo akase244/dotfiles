@@ -37,6 +37,8 @@ NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'vexxor/phpdoc.vim'
+NeoBundle 'heavenshell/vim-jsdoc'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -91,6 +93,8 @@ map <silent> <leader>tl :TlistToggle<cr>
 
 "map to [\nt]
 map <silent> <leader>nt :NERDTreeToggle<cr>
+"map to [\ntf]
+map <silent> <leader>ntf :NERDTreeFind<cr>
 
 let &termencoding = &encoding
 set encoding=utf-8
@@ -169,10 +173,10 @@ let NERDSpaceDelims = 1
 nmap <Leader>c <Plug>NERDCommenterToggle
 vmap <Leader>c <Plug>NERDCommenterToggle
 
-""map to [\kwbd]
+" map to [\kwbd]
 map <silent> <leader>kwbd :Kwbd<cr>
 
-"phpfolding
+" phpfolding
 augroup vimrc
     autocmd FileType phpunit EnableFastPHPFolds
 augroup END
@@ -185,7 +189,7 @@ augroup END
 "" let g:syntastic_javascript_checker = 'jshint'
 "" let g:syntastic_javascript_checker = 'gjslint'
 
-"operator-camelize
+" operator-camelize
 map <Leader>cml <Plug>(operator-camelize)
 map <Leader>snk <Plug>(operator-decamelize)
 
@@ -200,7 +204,18 @@ let g:variable_style_switch_definitions = [
 \     'false': {
 \       'false': 'true'
 \     },
+\
+\     'show': {
+\       'show': 'hide'
+\     },
+\
+\     'hide': {
+\       'hide': 'show'
+\     },
 \   }
 \ ]
 nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
 nnoremap - :Switch<cr>
+
+" PHP doc
+noremap <leader>pd :call PhpDoc()<CR>
