@@ -40,6 +40,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
+NeoBundle 'Shougo/neomru.vim'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
