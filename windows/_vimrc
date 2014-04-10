@@ -40,6 +40,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
 
 " My Bundles here:
@@ -218,3 +219,14 @@ noremap <leader>pd :call PhpDoc()<CR>
 " JSDoc
 " map to [\jd]
 map <silent> <leader>jd :JsDoc<cr>
+
+" syntastic
+let $PATH = $PATH . ';D:\Program Files\php-5.5.11'
+let $PATH = $PATH . ';C:\Users\u3tak\AppData\Roaming\Composer\vendor\bin'
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html', 'ctp'] }
+" show quickfix on error 
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_javascript_checker = 'jshint'
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
