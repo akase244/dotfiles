@@ -31,13 +31,13 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'everzet/phpfolding.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
+" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
 
 " My Bundles here:
@@ -90,7 +90,6 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function'
 let Tlist_Sort_Type = "name"
 " map to [\tl]
 map <silent> <leader>tl :TlistToggle<cr>
-
 " map to [\nt]
 map <silent> <leader>nt :NERDTreeToggle<cr>
 " map to [\ntf]
@@ -128,6 +127,7 @@ let g:indent_guides_enable_on_vim_startup = 0
 " インデントの色付け幅
 let g:indent_guides_guide_size = 1
 
+" unite.vim
 let g:unite_enable_start_insert = 1
 noremap <C-U><C-B> :Unite buffer<CR>
 noremap <C-U><C-F> :UniteWithBufferDir -buffer-name=files file<CR>
@@ -135,6 +135,23 @@ noremap <C-U><C-R> :Unite file_mru<CR>
 noremap <C-U><C-Y> :Unite -buffer-name=register register<CR>
 noremap <C-U><C-A> :Unite UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+" unite grep に ag (The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore-case --smart-case'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" grep実行時にQuickfixを自動で開く(vimgrep時に[|cw]の記述が不要になる)
+autocmd QuickFixCmdPost *grep* cwindow
+
+" neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 
 " Plugin key-mappings.
@@ -155,15 +172,9 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-" vim-ref
+" "vim-ref
 " let $PATH = $PATH . ';D:\Program Files (x86)\Lynx for Win32'
 " let g:ref_alc_encoding = 'cp932'
-
-" MiniBufExplorer
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
 
 " NERDCommenter
 " コメントした後に挿入するスペースの数
@@ -180,14 +191,12 @@ map <silent> <leader>kwbd :Kwbd<cr>
 augroup vimrc
     autocmd FileType phpunit EnableFastPHPFolds
 augroup END
-
-"" syntastic
-"" let g:syntastic_mode_map = { 'mode': 'active',
-"  " \ 'active_filetypes': [],
-"  " \ 'passive_filetypes': ['html'] }
-"" let g:syntastic_auto_loc_list = 1
-"" let g:syntastic_javascript_checker = 'jshint'
-"" let g:syntastic_javascript_checker = 'gjslint'
+" 全て閉じる
+" map to [zC]
+map <silent> zC zM<cr>
+" 全て開く
+" map to [zO]
+map <silent> zO zR<cr>
 
 " operator-camelize
 map <Leader>cml <Plug>(operator-camelize)
@@ -224,3 +233,11 @@ noremap <leader>pd :call PhpDoc()<CR>
 " JSDoc
 " map to [\jd]
 map <silent> <leader>jd :JsDoc<cr>
+
+" " syntastic
+" let g:syntastic_mode_map = { 'mode': 'active',
+ " \ 'active_filetypes': [],
+ " \ 'passive_filetypes': ['html'] }
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_javascript_checker = 'jshint'
+" let g:syntastic_javascript_checker = 'gjslint'
