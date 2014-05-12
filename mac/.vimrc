@@ -34,6 +34,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
@@ -64,6 +65,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number
+set noundofile
 syntax on
 autocmd BufRead,BufNewFile *.ctp set filetype=php
 autocmd BufRead,BufNewFile *.inc set filetype=php

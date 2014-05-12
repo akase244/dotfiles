@@ -35,6 +35,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
@@ -65,6 +66,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number
+set noundofile
 syntax on
 autocmd BufRead,BufNewFile *.ctp set filetype=php
 autocmd BufRead,BufNewFile *.inc set filetype=php
@@ -145,10 +147,16 @@ nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 " grep検索結果の再呼出
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-" unite grep に ag (The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore-case --smart-case'
+" unite grep に ag (The Silver Searcher) を使う => agは日本語の検索に難があるため利用しない
+" if executable('ag')
+  " let g:unite_source_grep_command = 'ag'
+  " let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore-case --smart-case'
+  " let g:unite_source_grep_recursive_opt = ''
+" endif
+" unite grep に pt (The Platinum Searcher) を使う
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '/nogroup /nocolor /ignore-case /smart-case /output-encode sjis'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
