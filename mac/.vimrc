@@ -1,12 +1,24 @@
+if 0 | endif
+
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
 " Recommended to install
 " VimShell required vimproc
@@ -40,22 +52,21 @@ NeoBundle 'vexxor/phpdoc.vim'
 NeoBundle 'heavenshell/vim-jsdoc'
 " NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
+" NeoBundle 'altercation/vim-colors-solarized'
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-"
-" Note: You don't set neobundle setting in .gvimrc!
+call neobundle#end()
 
-" ...
+" Required:
+filetype plugin indent on
 
-filetype plugin indent on     " Required!
 "
 " Brief help
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles
 " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
-" Installation check.
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
 
 
@@ -71,6 +82,10 @@ autocmd BufRead,BufNewFile *.ctp set filetype=php
 autocmd BufRead,BufNewFile *.inc set filetype=php
 autocmd BufRead,BufNewFile *.tpl set filetype=php 
 autocmd BufRead,BufNewFile *.inc.tpl set filetype=css
+"全角スペースを視覚化
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+
 
 map ¥ <leader>
 
