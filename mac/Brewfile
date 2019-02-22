@@ -25,18 +25,18 @@ cask "docker"
 cask "dropbox"
 cask "firefox"
 cask "fork"
+cask "google-backup-and-sync"
 cask "google-chrome"
 cask "google-japanese-ime"
-cask "google-backup-and-sync"
 cask "intellij-idea-ce"
 cask "mysqlworkbench"
 cask "phpstorm"
+cask "skitch"
 cask "skype"
+cask "slack"
 cask "vagrant"
 cask "virtualbox"
 cask "zoomus"
 mas "Numbers", id: 409203825 
 mas "Pages", id: 409201541
 mas "Keynote", id: 409183694
-mas "Skitch", id: 425955336
-mas "Slack", id: 803453959
