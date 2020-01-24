@@ -11,10 +11,12 @@ brew "bash"
 brew "bash-completion@2"
 brew "composer"
 brew "docker"
+brew "git"
 brew "go"
 brew "jq"
 brew "mas"
 brew "nodebrew"
+brew "openssl@1.1"
 brew "php", restart_service: true
 brew "pyenv"
 brew "ruby-build"
@@ -33,8 +35,8 @@ cask "fork"
 cask "google-backup-and-sync"
 cask "google-chrome"
 cask "google-japanese-ime"
-cask "google-drive-file-stream"
 cask "intellij-idea-ce"
+cask "microsoft-teams"
 cask "mysqlworkbench"
 cask "phpstorm"
 cask "skitch"
@@ -44,10 +46,10 @@ cask "typora"
 cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "xmind"
 cask "zoomus"
 mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
+mas "Gifted", id: 771955779
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Xcode", id: 497799835
