@@ -1,8 +1,8 @@
-tap "homebrew/cask-versions"
 tap "github/gh"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "stripe/stripe-cli"
@@ -38,6 +38,7 @@ cask "google-backup-and-sync"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "intellij-idea-ce"
+cask "krisp"
 cask "microsoft-edge"
 cask "microsoft-teams"
 cask "mysqlworkbench"
@@ -52,6 +53,7 @@ cask "visual-studio-code"
 cask "zoomus"
 mas "GarageBand", id: 682658836
 mas "Gifted", id: 771955779
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
