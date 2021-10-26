@@ -1,0 +1,40 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+brew "ansible"
+brew "awscli"
+brew "coreutils"
+brew "docker", link: false
+brew "docker-compose"
+brew "jq"
+brew "mas"
+brew "nodebrew"
+brew "pyenv"
+brew "rbenv"
+cask "1password"
+cask "adobe-acrobat-reader"
+cask "chatwork"
+cask "docker"
+cask "dropbox"
+cask "firefox"
+cask "fork"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "intellij-idea-ce"
+cask "microsoft-auto-update"
+cask "microsoft-edge"
+cask "microsoft-office"
+cask "phpstorm"
+cask "skitch"
+cask "skype"
+cask "spotify"
+cask "vagrant"
+cask "virtualbox"
+cask "visual-studio-code"
+cask "zoom"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
